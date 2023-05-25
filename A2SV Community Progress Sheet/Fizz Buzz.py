@@ -3,7 +3,7 @@ class Solution(object):
         """
         :type n: int
         :rtype: List[str]
-    
+   
         """
         arr=[]
         for i in range(1,n+1):
