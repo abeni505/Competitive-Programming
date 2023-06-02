@@ -7,8 +7,9 @@ class Solution(object):
         
        
         numstr=sorted(str(num))
+        nums="".join(numstr)
         
-        num1=int(numstr[0]+numstr[2])
-        num2=int(numstr[1]+numstr[3])
+        num1=int(nums[0]+nums[2])
+        num2=int(nums[1]+nums[3])
 
         return num1+num2
