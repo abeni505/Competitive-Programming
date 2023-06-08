@@ -5,16 +5,16 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        nu=nums.sort()
-        pt1=0
-        pt2=-1
-        while pt1+abs(pt2)<=len(nums):
-            if nums[pt1]+nums[pt2]>target:
-                pt2-=1
-            elif nums[pt1]+nums[pt2]<target:
-                pt1+=1
+        
+        left=0
+        right=len(nums)-1
+        while left<right:
+            if nums[left]+nums[right]>target:
+                right-=1
+            elif nums[left]+nums[right]<target:
+                left+=1
             else:
-                return [pt1+1,len(nums)+pt2+1]
+                return [left+1,right+1]
         
 
 
