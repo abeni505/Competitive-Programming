@@ -3,19 +3,20 @@
 class Solution:
     def arraySortedOrNot(self, arr, n):
         # code here
-        
-        ptr1=0
-        while ptr1<n-1 :
-            ptr2=ptr1+1
-            if arr[ptr1]<=arr[ptr2]:
-                ptr1+=1
-                
+        left=0
+        right=1
+       
+        while right<n:
+            if arr[left]<=arr[right]:
+                left+=1
+                right+=1
             else:
                 return 0
-        
+            
         return 1
-       
-                
+            
+            
+        
 
 
 #{ 
