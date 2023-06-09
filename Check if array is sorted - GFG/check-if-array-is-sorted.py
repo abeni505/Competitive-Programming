@@ -4,15 +4,14 @@ class Solution:
     def arraySortedOrNot(self, arr, n):
         # code here
         
-        ptr2=1
-        while ptr2<n :
-            ptr1=ptr2-1
+        ptr1=0
+        while ptr1<n-1 :
+            ptr2=ptr1+1
             if arr[ptr1]<=arr[ptr2]:
-                ptr2+=1
+                ptr1+=1
                 
             else:
                 return 0
-        
         
         return 1
        
