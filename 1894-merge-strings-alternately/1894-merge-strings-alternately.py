@@ -1,18 +1,16 @@
-class Solution(object):
-    def mergeAlternately(self, word1, word2):
-        """
-        :type word1: str
-        :type word2: str
-        :rtype: str
-        """
-        ptr1=ptr2=0
-        merge=""
-        while ptr1<len(word1) or ptr2<len(word2):
-            if ptr1<len(word1):
-                merge+=word1[ptr1]
-                ptr1+=1
-            if ptr2<len(word2):
-                merge+=word2[ptr2]
-                ptr2+=1
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        left,right=0,0
+        news=""
+        while left<len(word1) and right<len(word2):
+            news+=word1[left]
+            news+=word2[right]
+            left+=1
+            right+=1
+        news+=word1[left:]
+        news+=word2[right:]
+        
 
-        return merge
+        return news
+
+        
