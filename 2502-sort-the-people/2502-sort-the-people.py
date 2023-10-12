@@ -1,22 +1,18 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
-
+        pair={}
+        arr=[]
+        for j in range(len(names)):
+            pair[heights[j]]=names[j]
 
         for i in range(len(heights)):
-            max_index=i          
-            for j in range(i+1,len(heights)):
-                if heights[j]>heights[max_index]:
-                    max_index=j
-            heights[i],heights[max_index]=heights[max_index],heights[i]
-            names[i],names[max_index]=names[max_index],names[i]
-
-        return names
+            for j in range(len(heights)-1-i):
+                if heights[j]<heights[j+1]:
+                    heights[j],heights[j+1]=heights[j+1],heights[j]
+        for k in heights:
+            arr.append(pair[k])
         
+        return arr
 
         
-
         
-       
-
-
-            
