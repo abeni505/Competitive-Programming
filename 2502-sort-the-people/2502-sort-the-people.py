@@ -3,19 +3,19 @@ class Solution:
 
         for i in range(len(heights)):
 
-            key=heights[i]
-            key_name=names[i]
-            j=i-1
-            
-            while j>=0 and heights[j]<key:
-                heights[j+1]=heights[j]
-                names[j+1]=names[j]
+            max_index=i
 
-                heights[j]=key
-                names[j]=key_name
-                j-=1
+            for j in range(i+1,len(heights)):
+                if heights[j]>heights[max_index]:
+                    max_index=j
+            
+            heights[i],heights[max_index]=heights[max_index],heights[i]#This line is a must since this line is updating the heights list to match the sorted order.
+            names[i],names[max_index]=names[max_index],names[i]
 
         return names
+
+
+        
 
 
 
