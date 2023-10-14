@@ -1,5 +1,9 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        hashmap={}
+        sorted_arr=[]
+        for x in range(len(heights)):
+            hashmap[heights[x]]=names[x]
 
         for i in range(len(heights)):
 
@@ -9,10 +13,15 @@ class Solution:
                 if heights[j]>heights[max_index]:
                     max_index=j
             
-            heights[i],heights[max_index]=heights[max_index],heights[i]#This line is a must since this line is updating the heights list to match the sorted order.
-            names[i],names[max_index]=names[max_index],names[i]
+            heights[i],heights[max_index]=heights[max_index],heights[i]
 
-        return names
+        for k in heights:
+            sorted_arr.append(hashmap[k])
+
+
+
+
+        return sorted_arr
 
 
         
