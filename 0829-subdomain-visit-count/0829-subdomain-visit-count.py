@@ -1,16 +1,18 @@
 class Solution:
     def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
-        domain_count = defaultdict(int)
-        
-        for cpdomain in cpdomains:
-            count, domain = cpdomain.split(" ")
-            count = int(count)
-            
-            subdomains = domain.split(".")          
-            for i in range(len(subdomains)):
-                subdomain = ".".join(subdomains[i:])
-                domain_count[subdomain] += count
+        hashmap = {}
+        for i in cpdomains:
+            a = i.split(" ")
+            b = a[1].split(".")
+            for i in range(0, len(b)):
+                c = ".".join(b[i:])
+                if c in hashmap:
+                    hashmap[c] = int(hashmap[c]) + int(a[0])
+                else:
+                    hashmap[c] = int(a[0])
 
-        result = [str(count) + " " + subdomain for subdomain, count in domain_count.items()]
-        
-        return result
+        arr = []
+        for i in hashmap:
+            arr.append(str(hashmap[i]) + " " + i)
+
+        return arr
