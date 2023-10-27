@@ -1,17 +1,22 @@
 class Solution:
-    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        min_size = len(nums) + 1
-        curr_sum = 0
-        left = 0
+    def minSubArrayLen(self, t: int, nums: List[int]) -> int:
 
-        for right in range(len(nums)):
-            curr_sum += nums[right]
+        start = 0
+        end = 0
+        curr_sum = nums[start]
 
-            while curr_sum >= target:
-                min_size = min(min_size, right - left + 1)
-                curr_sum -= nums[left]
-                left += 1
-        if min_size == len(nums)+1:
+        min_length = inf
+
+        while(end < len(nums)):
+            if(curr_sum >= t):
+                min_length = min(min_length, end - start + 1)
+                curr_sum -= nums[start]
+                start += 1
+            else:
+                end += 1
+                if end < len(nums):
+                    curr_sum += nums[end]
+
+        if(min_length == inf):
             return 0
-        else:
-            return min_size
+        return min_length
