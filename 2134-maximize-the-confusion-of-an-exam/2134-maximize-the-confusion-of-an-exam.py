@@ -2,13 +2,13 @@ class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
         
         left=0
-        count={}
+        count={"T":0,"F":0}
         max_length=float("-inf")
 
         for right in range(len(answerKey)):
 
-            count[answerKey[right]] = 1 + count.get(answerKey[right],0)
-            if (right - left + 1) - max(count.values()) > k:
+            count[answerKey[right]] +=1
+            if min(count.values()) > k:
                 count[answerKey[left]] -= 1
                 left+=1
 
