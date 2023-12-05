@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/decompress-run-length-encoded-list">1241. Decompress Run-Length Encoded List</a></h2><h3>Easy</h3><hr><p>We are given a list <code>nums</code> of integers representing a list compressed with run-length encoding.</p>
+<h2><a href="https://leetcode.com/problems/decompress-run-length-encoded-list">Decompress Run-Length Encoded List</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>We are given a list <code>nums</code> of integers representing a list compressed with run-length encoding.</p>
 
 <p>Consider each adjacent pair&nbsp;of elements <code>[freq, val] = [nums[2*i], nums[2*i+1]]</code>&nbsp;(with <code>i &gt;= 0</code>).&nbsp; For each such pair, there are <code>freq</code> elements with value <code>val</code> concatenated in a sublist. Concatenate all the sublists from left to right to generate the decompressed list.</p>
 
