@@ -6,8 +6,8 @@ class Solution:
         ans = []
         count = Counter(nums)
 
-        for i in count.keys():
-            if count[i] > target:
-                ans.append(i)
+        for num in count.keys():
+            if count[num] > target:
+                ans.append(num)
 
         return ans
