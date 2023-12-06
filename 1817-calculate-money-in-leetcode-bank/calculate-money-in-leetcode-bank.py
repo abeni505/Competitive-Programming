@@ -1,16 +1,11 @@
 class Solution:
     def totalMoney(self, n: int) -> int:
-
-        def weekly(start,end):
-            return sum(range(start,end + 1))
         
-        full_week = n // 7
-        half_week = n % 7
+        week = n // 7
+        remain = n % 7
 
-        total_sum = 0
-        for i in range(full_week):
-            total_sum += weekly(i + 1 , i + 7)
+        total = 28*(week) + 7*(week-1)*week//2
 
-        total_sum += weekly(1 + full_week,half_week + full_week)
-    
-        return total_sum
+        total += ((week + remain)*(week + remain + 1) // 2)  - (((week + 1)*week)//2)
+
+        return total
