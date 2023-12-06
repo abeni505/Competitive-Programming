@@ -2,13 +2,16 @@ class Solution:
     def shuffle(self, nums: List[int], n: int) -> List[int]:
 
         out_put = []
-        left = nums[:(len(nums)//2)+1]
-        right = nums[len(nums)//2:]
+        
+        left = 0
+        right = len(nums)//2
 
-        for i in range(len(right)):
-            out_put.append(left[i])
-            out_put.append(right[i])
+        while left < len(nums)//2 and right < len(nums):
+            out_put.append(nums[left])
+            out_put.append(nums[right])
 
+            left += 1
+            right += 1
+            
         return out_put
-
         
