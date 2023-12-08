@@ -1,13 +1,9 @@
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
         
-        winners = set()
-        lossers = set()
-        
-        for win , loss in matches:
-            winners.add(win)
-            lossers.add(loss)
-        
+        winners = {win for win,loss in matches}
+        lossers = {loss for win,loss in matches}
+
         for win , loss in matches:
             if win in lossers:
                 winners.discard(win)
