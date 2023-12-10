@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/replace-elements-in-an-array/">2388. Replace Elements in an Array</a></h2><h3>Medium</h3><hr><p>You are given a <strong>0-indexed</strong> array <code>nums</code> that consists of <code>n</code> <strong>distinct</strong> positive integers. Apply <code>m</code> operations to this array, where in the <code>i<sup>th</sup></code> operation you replace the number <code>operations[i][0]</code> with <code>operations[i][1]</code>.</p>
+<h2><a href="https://leetcode.com/problems/replace-elements-in-an-array">Replace Elements in an Array</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>You are given a <strong>0-indexed</strong> array <code>nums</code> that consists of <code>n</code> <strong>distinct</strong> positive integers. Apply <code>m</code> operations to this array, where in the <code>i<sup>th</sup></code> operation you replace the number <code>operations[i][0]</code> with <code>operations[i][1]</code>.</p>
 
 <p>It is guaranteed that in the <code>i<sup>th</sup></code> operation:</p>
 
