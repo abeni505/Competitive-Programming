@@ -1,4 +1,4 @@
 class Solution:
     def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
 
-        return zip(*matrix)
+        return [list(row) for row in zip(*matrix)]
