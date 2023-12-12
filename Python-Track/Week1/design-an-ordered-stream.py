@@ -10,14 +10,10 @@ class OrderedStream:
 
 
         out_put = []
-        if id == self.ptr:
-            
-            while self.ptr < len(self.stream):
-                if self.stream[self.ptr] == 0:
-                    break
-                else:
-                    out_put.append(self.stream[self.ptr])
-                self.ptr += 1
+        while self.ptr < len(self.stream) and self.stream[self.ptr] :
+            out_put.append(self.stream[self.ptr])
+            self.ptr += 1
+
         return out_put
         
 
