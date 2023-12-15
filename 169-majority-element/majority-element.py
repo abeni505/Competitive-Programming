@@ -3,6 +3,8 @@ class Solution:
         
         operation = len(nums) // 2
         count = Counter(nums)
-        for i in nums:
+        hashset = set(nums)
+        
+        for i in hashset:
             if count[i] > operation:
                 return i
