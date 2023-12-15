@@ -40,14 +40,9 @@ class Bitset:
         
 
     def toString(self) -> str:
-        a = ''
-        for i in self.array:
-            if i:
-                a += '1'
-            else:
-                a += '0'
-
-        return a
+        out_put = ["1" if i else "0" for i in self.array]
+        
+        return "".join(out_put)
         
 
 
