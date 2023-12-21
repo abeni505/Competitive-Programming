@@ -1,9 +1,9 @@
 class Solution:
     def maxScoreIndices(self, nums: List[int]) -> List[int]:
         
-        m_score = dict()
+        m_score = { 0 : sum(nums), len(nums):len(nums) - sum(nums) }
         score = sum(nums)
-        m_score[0] = score
+       
         
         total_sum = 0
         for i in range(0,len(nums)-1):
@@ -15,7 +15,6 @@ class Solution:
             cur_score = nums_left + nums_right
             m_score[i+1] = cur_score
 
-        m_score[len(nums)] = len(nums) - sum(nums)
 
         max_val = 0
         for key, val in m_score.items():
