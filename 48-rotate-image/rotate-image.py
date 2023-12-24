@@ -4,32 +4,17 @@ class Solution:
         Do not return anything, modify matrix in-place instead.
         """
         
-        # row = len(matrix)
-        # col = len(matrix[0])
-
-        # rotated = list(zip(*matrix))
-        # print(rotated)
-
-
-        # output = []
-        # for i in rotated:
-        #     output.append(list(i[::-1]))
-        # print(output)
-        # return output
-
+       
         n = len(matrix)
     
+        for c in range(n):
+            for r in range(n // 2): # to not swap again 
+                matrix[r][c], matrix[n - 1 - r][c] = matrix[n - 1 - r][c], matrix[r][c]
 
-        # for r in range(row):
-        #     for c in range(col):
-        #         temp = matrix[r][c]
-        #         matrix[r][c] = matrix[col - 1 - c][ r]
-        #         matrix[c][row - 1 - r] = temp
-        
-        for i in range(n):
-            for j in range(i + 1, n):
-                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        for row in range(n):
+            for col in range(row + 1): # to swap from above main digonal
+                matrix[row][col] , matrix[col][row] = matrix[col][row] , matrix[row][col]
 
-        for i in range(n):
-            matrix[i].reverse()
+        # for row in matrix:
+        #     print(row)
         
