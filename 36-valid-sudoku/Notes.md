@@ -1,0 +1,1 @@
+<h2>valid-sudoku Notes</h2><hr>BF
