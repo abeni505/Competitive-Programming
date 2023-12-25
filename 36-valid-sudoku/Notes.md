@@ -1,1 +1,1 @@
-<h2>valid-sudoku Notes</h2><hr>BF
+<h2>valid-sudoku Notes</h2><hr>clear implementaion
