@@ -1,17 +1,26 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         
+        
+        range_arr = [0]*(max(heights) + 1)
 
-        swapped = False
-        for i in range(len(names)):
-            for j in range(len(names) - 1 - i):
-                if heights[j] < heights[j+1]:
-                    heights[j] , heights[j+1] = heights[j+1] , heights[j]
-                    names[j] , names[j+1] = names[j+1] , names[j]
-                    swapped = True
+        hashmap = {}
+        for i in range(len(heights)):
+            hashmap[heights[i]] = names[i]
 
-            if not swapped :
-                break
-                               
-        return names
+        for i in heights:
+            range_arr[i] += 1
+       
+
+        new_names = []
+        for i in range(len(range_arr) - 1, -1, -1):
+            for j in range(range_arr[i]):
+                new_names.append(hashmap[i])
+
+        return new_names
+
+
+
+
+
 
