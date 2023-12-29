@@ -1,29 +1,24 @@
 class Solution:
     def pancakeSort(self, arr: List[int]) -> List[int]:
-        
+
         def flip(array , k):
-            left = array[:k + 1]
-            right = array[k + 1:]
+            left = 0
+            right = k
 
-            left = left[::-1]
-            output = left + right
-    
-
-            return output
+            while left < right:
+                array[left] , array[right] = array[right] , array[left]
+                left += 1
+                right -= 1
         
-        count = []
+        output = []
+        for i in range(len(arr) - 1 , -1 , -1):
+            max_index = arr.index(i + 1)
 
+            flip(arr,max_index)
+            output.append(max_index + 1)
 
-        for i in range(len(arr), 0 , -1):
-            
-            max_index  = arr.index(i)
-            
-            arr = flip(arr,max_index)
-            arr = flip(arr, i - 1)
+            flip(arr, i)
+            output.append(i + 1)
 
-            count.append(max_index + 1)
-            count.append(i)
+        return output
 
-
-        return count
-           
