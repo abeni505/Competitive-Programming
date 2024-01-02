@@ -11,7 +11,7 @@ class Solution:
             for k in range(counter[j]):
                 new_nums.append(j)
 
-        cur_sum = 0
+
         max_ = 0
         for k in range(len(new_nums)):
             
