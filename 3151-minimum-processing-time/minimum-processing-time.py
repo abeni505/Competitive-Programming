@@ -3,15 +3,9 @@ class Solution:
         tasks.sort()
         processorTime.sort(reverse = True)
 
-        length = len(tasks)//len(processorTime)
-
-        new_arr = []
-        for i in range(length - 1,len(tasks),length):
-            new_arr.append(tasks[i])
-        
         max_ = 0
-        for i in range(len(new_arr)):
-            cur_max = new_arr[i] + processorTime[i]
+        for i in range(3, len(tasks), 4):
+            cur_max = tasks[i] + processorTime[i // 4]
             max_ = max(max_, cur_max)
 
         return max_
