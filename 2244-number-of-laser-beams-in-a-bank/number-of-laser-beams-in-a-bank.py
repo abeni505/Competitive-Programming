@@ -7,12 +7,9 @@ class Solution:
         prev_row = 0
         total = 0
 
-        for row in range(r):
+        for row in bank:
 
-            count_1 = 0
-            for col in range(c):
-                if bank[row][col] == "1":
-                    count_1 += 1
+            count_1 = row.count("1")
 
             if count_1 != 0:
 
