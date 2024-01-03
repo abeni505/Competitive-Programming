@@ -4,13 +4,13 @@ class Solution:
         g.sort()
         s.sort()
 
-        count = 0
-        i,j = 0 , 0
+        left = right = count = 0
 
-        while i < len(g) and j < len(s):
-            if g[i] <= s[j]:
+        while left < len(g) and right < len(s):
+            if g[left] <= s[right]:
                 count += 1
-                i += 1
-            j += 1
+                left += 1
+                
+            right += 1
 
         return count
