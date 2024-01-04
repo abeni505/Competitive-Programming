@@ -5,17 +5,15 @@ class Solution:
 
         total = 0
         for val in count.values():
-            if val >= 3:
+            if val >= 2:
+
                 q = val//3
                 r = val % 3
-                if r > 0:
+                if r > 0 or q == 0:
                     r = 1
+
                 total += q + r
-        
-            elif val == 2:
-                q = val//2
-                r = val % 2
-                total += q + r
+
             else:
                 total = -1
                 break
