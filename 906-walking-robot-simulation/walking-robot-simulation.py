@@ -1,30 +1,32 @@
 class Solution:
     def robotSim(self, commands: List[int], obstacles: List[List[int]]) -> int:
         
-        directions = [(0,1),(1,0),(0,-1),(-1,0)]
+        directions = [(0,1) , (-1,0) ,(0,-1) , (1,0)] # N W S E
 
         obs = set()
-        max_distance = 0
 
-        for x , y in obstacles:
-            obs.add((x,y))
+        for a , b in obstacles:
+            obs.add((a,b))
 
+        max_ = 0
         current = 0
         x , y = 0 , 0
         for c in commands:
             if c == -2:
-                current = (current - 1) % 4
-            elif c == -1:
                 current = (current + 1) % 4
+            elif c == -1:
+                current = (current + 3) % 4
             else:
                 for _ in range(c):
-                    dx , dy = directions[current]
-                    xn  , yn = x + dx , y + dy
+                    curx , cury = directions[current]
+                    newx , newy = x + curx , y + cury
 
-                    if (xn , yn) in obs:
+                    if (newx , newy) in obs:
                         break
+                    
+                    x = newx
+                    y = newy
+                
+                max_ = max(max_, x*x + y*y)
 
-                    x , y = xn , yn
-                max_distance = max(max_distance , x*x + y*y)
-
-        return max_distance
+        return max_
