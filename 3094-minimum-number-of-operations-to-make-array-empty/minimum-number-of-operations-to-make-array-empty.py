@@ -1,7 +1,6 @@
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
 
-        nums.sort()
         count = Counter(nums)
 
         total = 0
