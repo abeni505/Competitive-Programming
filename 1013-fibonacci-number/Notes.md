@@ -1,1 +1,1 @@
-<h2>fibonacci-number Notes</h2><hr>Memo
+<h2>fibonacci-number Notes</h2><hr>Memoization
