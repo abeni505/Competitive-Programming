@@ -1,16 +1,20 @@
-def fibonacci(n, hashmap):
-        if n <= 1:
-            return n  
+def fibonacci(n):
+        i = 2
+        dp = [0 , 1]
+        if n == 0:
+            return dp[0]
+        
+        while i <= n:
+            temp = dp[1]
+            dp[1] = dp[0] + dp[1]
+            dp[0] = temp
 
-        if n in hashmap:
-            return hashmap[n]
+            i += 1
 
-        hashmap[n] = fibonacci(n - 1 , hashmap) + fibonacci(n - 2, hashmap)
-
-        return  hashmap[n]
+        return dp[1]
 
 class Solution:
     def fib(self, n: int) -> int:
-        return  fibonacci(n,{})
+        return  fibonacci(n)
 
     
