@@ -1,9 +1,12 @@
-def fibonacci(n):
-        i = 2
+class Solution:
+    def fib(self, n: int) -> int:
+
+        
         dp = [0 , 1]
         if n == 0:
             return dp[0]
         
+        i = 2
         while i <= n:
             temp = dp[1]
             dp[1] = dp[0] + dp[1]
@@ -12,9 +15,6 @@ def fibonacci(n):
             i += 1
 
         return dp[1]
-
-class Solution:
-    def fib(self, n: int) -> int:
-        return  fibonacci(n)
+       
 
     
