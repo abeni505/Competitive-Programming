@@ -4,15 +4,24 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
 
-        swapped = False
-        for i in range(len(nums)):
-            for j in range(len(nums) - 1 - i):
-                if nums[j] > nums[j + 1]:
-                    nums[j] , nums[j + 1] = nums[j + 1] , nums[j]
-                    swapped = True
+        left = seeker = 0
+        right = len(nums) - 1
+        
 
-            if not swapped:
-                break
-        return nums
+        while seeker <= right:
+            
+            if nums[seeker] == 0:
+                nums[left], nums[seeker] = nums[seeker] , nums[left]
+                left += 1
+                seeker += 1
+                
+            elif nums[seeker] == 2:
+                nums[seeker] , nums[right] = nums[right] , nums[seeker]
+                right -= 1
+            else:
+                seeker += 1
+            
+
 
         
+    
