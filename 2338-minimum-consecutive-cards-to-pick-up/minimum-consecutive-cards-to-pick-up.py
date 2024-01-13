@@ -2,27 +2,19 @@ class Solution:
     def minimumCardPickup(self, cards: List[int]) -> int:
         
         left = 0
-        min_len = float('inf')
-
-        window = defaultdict(int)
-        flag = False
+        min_ = float('inf')
+        window = set()
 
         for right in range(len(cards)):
-            window[cards[right]] += 1
-        
             
-            while window[cards[right]] > 1:
-                flag = True
+            while cards[right] in window:
 
-                min_len = min(min_len , right - left + 1)
-                window[cards[left]] -= 1
-                if window[cards[left]] == 0:
-                    del window[cards[left]]
+                min_  =  min(min_ , right - left + 1)
+                window.discard(cards[left])
                 left += 1
 
+            window.add(cards[right])
 
-        if not flag:
-            return -1
-        return min_len
+        return min_ if min_ != float('inf') else -1
 
-            
+
