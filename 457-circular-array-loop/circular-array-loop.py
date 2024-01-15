@@ -6,7 +6,6 @@ class Solution:
 
         for root_index in range(len(nums)):
             current_index = root_index
-            next_ = next_index(current_index)
             # print(current_index ,next_)
             visited = set()
 
@@ -19,3 +18,4 @@ class Solution:
                 return True
         
         return False
+    
