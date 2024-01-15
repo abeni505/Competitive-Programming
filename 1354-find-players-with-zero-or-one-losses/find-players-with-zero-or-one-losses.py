@@ -1,18 +1,21 @@
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
         
-        winners = {win for win,loss in matches}
-        lossers = {loss for win,loss in matches}
-        count = {}
+        winner = defaultdict(int)
+        looser = defaultdict(int)
 
-        for win , loss in matches:
-            if win in lossers:
-                winners.discard(win)
-            count[loss] = 1 + count.get(loss, 0)
-
-        loss_1 = []
-        for loss in lossers:
-            if count[loss] == 1:
-                loss_1.append(loss)
-     
-        return [sorted(winners),sorted(loss_1)]
+        for x, y in matches:
+            winner[x] += 1
+            looser[y] += 1
+        
+        output0 = []
+        output1 = []
+        for key in winner.keys():
+            if key not in looser.keys():
+                output0.append(key)
+        for key , val in looser.items():
+            if val == 1:
+                output1.append(key)
+        output0.sort()
+        output1.sort()
+        return [output0 , output1]
