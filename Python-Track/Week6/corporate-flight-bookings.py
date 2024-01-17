@@ -7,11 +7,9 @@ class Solution:
         for first , last , seats in bookings:
             prefix[first - 1] += seats
             prefix[last] -= seats
-        
-        pre_sum = 0
-        for i in range(len(prefix)):
-            prefix[i] += pre_sum
-            pre_sum = prefix[i]
-
+  
+        for i in range(1,len(prefix)):
+            prefix[i] += prefix[i - 1]
+    
         
         return prefix[:-1]
