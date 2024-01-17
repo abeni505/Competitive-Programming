@@ -3,4 +3,4 @@ class Solution:
         count = Counter(arr)
         count_val = Counter(count.values())
 
-        return len(set(arr)) == len(count_val.keys())
+        return len(count.keys()) == len(count_val.keys())
