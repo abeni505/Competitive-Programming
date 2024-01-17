@@ -9,8 +9,7 @@ class Solution:
             run_sum += i
 
             check = run_sum - k
-            if check in prefix:
-                count += prefix[check]
+            count += prefix[check]
 
             prefix[run_sum] += 1
     
