@@ -9,12 +9,10 @@ class Solution:
             prefix[from_] += numPass
             prefix[to_] -= numPass
 
-        pre_sum = 0
+        run_sum = 0
         for i in range(len(prefix)):
-            prefix[i] = pre_sum + prefix[i]
-            pre_sum = prefix[i]
-            
-            if pre_sum > capacity:
+            run_sum += prefix[i]
+            if run_sum > capacity:
                 return False
         
         return True
