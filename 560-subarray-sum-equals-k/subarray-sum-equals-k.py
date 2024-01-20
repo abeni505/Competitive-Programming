@@ -1,18 +1,21 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-
+        
         prefix = defaultdict(int)
         prefix[0] = 1
 
-        run_sum = count = 0
-        for i in nums:
-            run_sum += i
+        count = pre_right = 0
+        for num in nums:
+            pre_right += num
+            pre_left = pre_right - k
 
-            check = run_sum - k
-            count += prefix[check]
+            count += prefix[pre_left]
 
-            prefix[run_sum] += 1
-    
+            prefix[pre_right] += 1
+
         return count
 
-   
+
+
+
+
