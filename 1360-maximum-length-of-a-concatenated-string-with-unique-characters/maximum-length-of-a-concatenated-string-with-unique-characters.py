@@ -1,28 +1,20 @@
 class Solution:
     def maxLength(self, arr: List[str]) -> int:
 
-        charSet = set()
-        
-        def overlap(s, charSet):
-            c = Counter(s) + Counter(charSet)
-            return any( val > 1 for val in c.values()) 
+        max_len = 0
+        n = 2**(len(arr))
 
+        for i in range(n):
+            bit = i
+            curr = []
+    
+            for j in range(len(arr)):
+                if bit & (1<<j):
+                    curr.extend(arr[j])
 
-        def backtrack(idx):
-            if idx == len(arr):
-                return len(charSet)
+            if len(set(curr)) == len(curr):
+                max_len = max(max_len , len(curr))
             
-            take = 0
-            if not overlap(arr[idx], charSet):
-                for ch in arr[idx]:
-                    charSet.add(ch)
-                take = backtrack(idx+1)
-                for ch in arr[idx]:
-                    if ch in charSet:
-                        charSet.remove(ch)
+        return max_len
 
-            notTake = backtrack(idx+1)
-            
-            return max(take,notTake)
         
-        return backtrack(0)
