@@ -24,14 +24,11 @@ class Solution:
             
             curr = curr.next
 
-        while ptr1:
-            curr.next = ptr1
-            ptr1 = ptr1.next
-            curr = curr.next
-
-        while ptr2:
+        if ptr1:
+            curr.next =  ptr1
+    
+        if ptr2:
             curr.next = ptr2
-            ptr2 = ptr2.next
-            curr = curr.next
-            
+    
+
         return dummy.next
