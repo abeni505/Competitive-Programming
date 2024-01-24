@@ -30,4 +30,4 @@ class Solution:
 
 
         return dummy.next
-        # right.next = None
+       
