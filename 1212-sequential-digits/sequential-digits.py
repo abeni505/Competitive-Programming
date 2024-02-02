@@ -1,14 +1,15 @@
 class Solution:
     def sequentialDigits(self, low, high):
-        c = "123456789"
+        
+        digit = "123456789"
         output = []
 
-        for i in range(len(c)):
-            for j in range(i + 1, len(c) + 1):
-                cheeck = int(c[i:j])
-                if low <= cheeck <= high:
-                    output.append(cheeck)
+        for i in range(len(digit)):
+            for j in range(i + 1, len(digit)):
+                check = int(digit[i:j + 1])
+
+                if low <= check <= high:
+                    output.append(check)
 
         output.sort()
         return output
-
