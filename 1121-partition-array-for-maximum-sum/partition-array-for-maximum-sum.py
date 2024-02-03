@@ -3,11 +3,10 @@ class Solution:
         
         memo = defaultdict(int)
         def recur(i):
-            if i >= len(arr):
-                return 0
 
             if i in memo:
                 return memo[i]
+                
             curr_max = 0
             total_max = 0
 
