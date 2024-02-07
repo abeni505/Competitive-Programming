@@ -5,8 +5,7 @@ class Solution:
 
         keys = [i for i in count.keys()]
         
-        keys = sorted(keys, key = lambda x : count[x])
-        keys = keys[::-1]
+        keys = sorted(keys, key = lambda x : count[x] , reverse = True)
 
         output = []
         for i in range(len(keys)):
