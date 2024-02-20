@@ -1,22 +1,14 @@
 class Solution:
     def twoCitySchedCost(self, costs: List[List[int]]) -> int:
         
-        costs = sorted(costs , key = lambda x: abs(x[1]-x[0]) , reverse = True)
+        costs = sorted(costs , key = lambda x: x[0]-x[1])
         n = len(costs)
-    
-        a = b = total = 0
-        for x , y in costs:
-            if a == n//2 or b == n//2:
-                if a == n//2:
-                    total += y
-                else:
-                    total += x
+        print(costs)
+        total = 0
+        for i in range(n):
+            if i < n//2:
+                total += costs[i][0]
             else:
-                if x < y:
-                    total += x
-                    a += 1
-                else:
-                    total += y
-                    b += 1
+                total += costs[i][1]
             
         return total
