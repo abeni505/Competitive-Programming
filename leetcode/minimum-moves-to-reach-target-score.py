@@ -1,7 +1,5 @@
 class Solution:
     def minMoves(self, target: int, maxDoubles: int) -> int:
-        
-        cur = 1
         count = 0
         
         while maxDoubles and target > 1:
