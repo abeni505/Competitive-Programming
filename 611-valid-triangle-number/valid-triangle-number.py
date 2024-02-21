@@ -5,14 +5,13 @@ class Solution:
         total = 0
 
 
-        for i in range(len(nums)-2):
+        for target in range(len(nums)-1,1,-1):
 
+            right = target - 1
             left = 0
-            right = len(nums) - i - 2
 
-            target = nums[len(nums) - i - 1]
             while left < right:
-                if nums[left] + nums[right] > target:
+                if nums[left] + nums[right] > nums[target]:
                     total += right - left
                     right -= 1
 
