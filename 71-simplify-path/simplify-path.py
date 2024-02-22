@@ -12,7 +12,4 @@ class Solution:
             elif i != "." and i != "":
                 stack.append(i)
 
-        output = ["/"]
-        output.append("/".join(stack))
-
-        return "".join(output)
+        return "/" + "/".join(stack)
