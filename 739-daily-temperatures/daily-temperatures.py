@@ -1,14 +1,16 @@
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
-        n = len(temperatures) 
-        result = [0] * n
+        
         stack = []
+        hashmap = {}
+        for i in range(len(temperatures)):
+            while stack and temperatures[stack[-1]] < temperatures[i]:
+                hashmap[stack.pop()] = i
 
-        for i in range(n):
-            while stack and temperatures[i] > temperatures[stack[-1]]:
-                j = stack.pop()   
-                result[j] = i - j   
-                
             stack.append(i)
 
-        return result
+        output = []
+        for i in range(len(temperatures)):
+            output.append(hashmap.get(i, i) - i)
+
+        return output
