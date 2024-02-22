@@ -2,15 +2,12 @@ class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         
         stack = []
-        hashmap = {}
+        hashmap = [0]*len(temperatures)
         for i in range(len(temperatures)):
             while stack and temperatures[stack[-1]] < temperatures[i]:
-                hashmap[stack.pop()] = i
+                peak = stack.pop()
+                hashmap[peak] = i - peak
 
             stack.append(i)
 
-        output = []
-        for i in range(len(temperatures)):
-            output.append(hashmap.get(i, i) - i)
-
-        return output
+        return hashmap
