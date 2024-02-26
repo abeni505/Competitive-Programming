@@ -5,8 +5,9 @@ class Solution:
         """
         def rec(n):
 
-            if n >= len(s):
+            if n == len(s):
                 return
+                
             temp = s[n]
             rec(n+1)
             
