@@ -3,5 +3,17 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
+        def rec(n):
+
+            if n >= len(s):
+                return
+            temp = s[n]
+            rec(n+1)
+            
+            s[-1 - n] = temp
+            # print(s[n])
+            
+        rec(0)
         
-        return(s.reverse())
+
+     
