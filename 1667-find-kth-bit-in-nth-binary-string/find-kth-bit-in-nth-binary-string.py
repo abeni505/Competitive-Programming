@@ -12,7 +12,7 @@ class Solution:
         if k < val: 
             return self.findKthBit(n - 1 , k)
         else:
-            check = self.findKthBit(n - 1, 2*val - k)
+            check = self.findKthBit(n - 1, 2*val - k) # val  - (k - val)
 
             return str(int(check) ^ 1)
             
