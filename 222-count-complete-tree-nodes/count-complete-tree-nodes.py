@@ -6,15 +6,21 @@
 #         self.right = right
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
-        
-        count = 0
-        def dfs (root):
-            nonlocal count
-            if not root: return
 
-            count += 1
-            dfs(root.left)
-            dfs(root.right)
+        if not root: return 0 
+        
+        queue = deque([root])
+
+        ans = 0
+        while queue:
+            ans += 1 
             
-        dfs(root)
-        return count
+            last_poped = queue.popleft()
+
+            if last_poped.left:
+                queue.append(last_poped.left)
+            if last_poped.right:
+                queue.append(last_poped.right)
+
+        return ans
+
