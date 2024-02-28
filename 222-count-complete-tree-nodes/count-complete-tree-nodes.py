@@ -17,24 +17,19 @@ class Solution:
             dfs(root.right)
         
 
-        def left_height(root):
+        def left_height(root , Left):
             height = 0
             while root:
-                root = root.left
+                if Left:
+                    root = root.left
+                else:
+                    root = root.right
                 height += 1
             return height
 
 
-        def right_height(root):
-            height  = 0
-            while root:
-                root = root.right
-                height += 1
-            return height
-
-
-        if left_height(root) == right_height(root):
-            return 2**left_height(root) - 1
+        if left_height(root , True) == left_height(root,False):
+            return 2**left_height(root,True) - 1
         else:
             dfs(root)
             return count
