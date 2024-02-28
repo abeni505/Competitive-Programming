@@ -7,16 +7,7 @@
 class Solution:
     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
         
-        # inorder = [] 
-        # # hashmap = defaultdict(int)
-        # def inorder_t(root):
-        #     if not root:
-        #         return
-        #     inorder_t(root.left)
-        #     inorder.append(root.val)
-        #     # hashmap[root.val] = root
-        #     inorder_t(root.right)
-        # inorder_t(root)
+
         def helper(root):
             curr = root
             while curr.left:
@@ -29,7 +20,7 @@ class Solution:
                 return 
             if root.val == key:
                 if root.left and root.right:
-                    # key = inorder[inorder.index(key) + 1]
+
                     temp = helper(root.right)
                     root.val = temp.val
 
