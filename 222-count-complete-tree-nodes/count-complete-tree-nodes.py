@@ -7,15 +7,6 @@
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:
         
-        count = 0
-        def dfs (root):
-            nonlocal count
-            if not root: return
-
-            count += 1
-            dfs(root.left)
-            dfs(root.right)
-        
 
         def left_height(root , Left):
             height = 0
@@ -31,6 +22,5 @@ class Solution:
         if left_height(root , True) == left_height(root,False):
             return 2**left_height(root,True) - 1
         else:
-            dfs(root)
-            return count
+            return 1 + self.countNodes(root.left) + self.countNodes(root.right)
 
