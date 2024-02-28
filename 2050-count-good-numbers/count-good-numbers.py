@@ -2,10 +2,18 @@ class Solution:
     def countGoodNumbers(self, n: int) -> int:
         
         mod =  (10**9 + 7)
-        modinverse = 400000003
+       
+        def modInverse(b,m):
+            g = math.gcd(b, m)
+            if (g != 1):
+                return - 1
+            else:        
+                return pow(b, m - 2,m)
+
+
         def modDivide(a,b,m):
             a = a % m
-            inv = modinverse
+            inv = modInverse(b,m)
             return (inv*a) % m
 
         if n == 1:
