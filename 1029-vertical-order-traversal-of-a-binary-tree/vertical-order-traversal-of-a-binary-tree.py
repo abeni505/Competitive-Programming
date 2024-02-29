@@ -22,11 +22,14 @@ class Solution:
         keys = sorted(level_order.keys())
 
        
+        output = []
         for key in keys:
             level_order[key].sort()
             
-            output = []
+            curr = []
             for depth , val in level_order[key]:
-                output.append(val)
+                curr.append(val)
 
-            yield output
+            output.append(curr)
+
+        return output
