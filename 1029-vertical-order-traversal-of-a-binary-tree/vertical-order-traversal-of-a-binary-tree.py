@@ -17,7 +17,6 @@ class Solution:
         
 
         dfs(root,0,0)
-        print(level_order)
 
         keys = sorted(level_order.keys())
 
@@ -26,10 +25,8 @@ class Solution:
         for key in keys:
             level_order[key].sort()
             
-            curr = []
+            output = []
             for depth , val in level_order[key]:
-                curr.append(val)
+                output.append(val)
 
-            output.append(curr)
-
-        return output
+            yield output
