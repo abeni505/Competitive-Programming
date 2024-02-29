@@ -7,13 +7,17 @@
 class Solution:
     def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
         
-        queue = deque([root])
+        level = defaultdict(list)
 
-        while queue:
-            last_poped = queue.popleft()
-            if last_poped.right:
-                queue.append(last_poped.right)
-            if last_poped.left:
-                queue.append(last_poped.left)
-            
-        return last_poped.val
+        def dfs(root,lev):
+            if not root: return
+
+            level[lev].append(root.val)
+            dfs(root.left, lev + 1)
+            dfs(root.right, lev + 1)
+        
+        dfs(root,0)
+        
+        max_depth = max(level.keys())
+    
+        return level[max_depth][0]
