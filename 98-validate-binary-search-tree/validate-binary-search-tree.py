@@ -7,14 +7,18 @@
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         
-        inorder = []
-        def inorder_t (root):
+        def dfs(root , maximum , minimum):
             if not root:
-                return
+                return True
 
-            inorder_t(root.left)
-            inorder.append(root.val)
-            inorder_t(root.right)
+            if root.val >= maximum or root.val <= minimum:
+                return False
+            
+            return dfs(root.left , root.val , minimum) and dfs(root.right, maximum , root.val)
+            
 
-        inorder_t(root)
-        return inorder == sorted(inorder) and len(inorder) == len(set(inorder))
+        return dfs(root,float('inf') , float('-inf'))
+        
+
+
+
