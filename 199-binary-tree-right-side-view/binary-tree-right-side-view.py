@@ -10,7 +10,7 @@ class Solution:
         if not root: return
         queue = deque([root])
 
-        output = []
+      
         while queue:
 
             level = []
@@ -22,7 +22,5 @@ class Solution:
                     queue.append(last_poped.right)
                 if last_poped.left:
                     queue.append(last_poped.left)
-            output.append(level)
-
-            
-        return [i[0] for i in output]
+                    
+            yield level[0]
