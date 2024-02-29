@@ -20,11 +20,9 @@ class Solution:
             if not root.left and not root.right:
 
                 ans += int("".join(output))
-                print(output , ans)
                 output.pop()
-                return
             
-            if output and output[-1] == str(root.val):
+            elif output and output[-1] == str(root.val):
                 output.pop() 
 
         dfs(root)
