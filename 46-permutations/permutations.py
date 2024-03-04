@@ -3,7 +3,7 @@ class Solution:
         
         output = []
         if len(nums) == 1:
-            return [nums[:]]
+            return [nums.copy()]
         
         for i in range(len(nums)):
             poped = nums.pop(0)
