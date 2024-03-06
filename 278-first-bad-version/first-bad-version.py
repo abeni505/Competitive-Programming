@@ -7,14 +7,12 @@ class Solution:
         left = 0    
         right = n 
 
-        while left < right:
+        while left + 1 < right:
 
             mid = (left + right)//2
 
             if isBadVersion(mid):
                 right = mid
             else:
-                left = mid + 1
-
-        if left == right:
-            return left
+                left = mid 
+        return right
