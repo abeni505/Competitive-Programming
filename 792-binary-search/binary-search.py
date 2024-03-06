@@ -1,9 +1,19 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         
-        indx = bisect.bisect_right(nums,target)
 
-        if indx > 0 and nums[indx - 1] == target:
-            return indx -1 
+        left = -1
+        right = len(nums) - 1
+
+        while left + 1 < right:
+            mid = (left + right)//2
+
+            if nums[mid] >= target:
+                right = mid 
+            else:
+                left = mid 
+
+        if nums[right] == target:
+            return right
         else:
             return -1
