@@ -1,39 +1,11 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         
-        left = -1
-        right = len(nums) - 1
+        right = bisect.bisect_right(nums,target)
+        left = bisect.bisect_left(nums,target)
 
-        if len(nums) == 0:return [-1,-1]
+        # print(left , right)
+        if left < len(nums) and right > 0 and nums[left] == target:
+            return [left,right -1]
+        return [-1,-1]
 
-        output = []
-        while left + 1 < right:
-            mid = (left + right)//2
-
-            if nums[mid] >= target:
-                right = mid
-            else:
-                left = mid
-        
-        if nums[right] == target:
-            output.append(right)
-        else:
-            output.append(-1)
-
-        left2 = 0
-        right = len(nums)
-
-        while left + 1 < right:
-            mid = (left + right) // 2
-
-            if nums[mid] > target:
-                right = mid
-            else:
-                left = mid 
-
-        if nums[left] == target:
-            output.append(left)
-        else:
-            output.append(-1)
-
-        return output
