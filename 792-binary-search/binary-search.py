@@ -1,10 +1,9 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         
-        indx = bisect.bisect_left(nums,target)
+        indx = bisect.bisect_right(nums,target)
 
-        print(indx)
-        if indx < len(nums) and nums[indx] == target:
-            return indx
+        if indx > 0 and nums[indx - 1] == target:
+            return indx -1 
         else:
             return -1
