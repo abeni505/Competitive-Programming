@@ -4,19 +4,15 @@ class Solution:
        
         count = Counter(s)
         output = []
-        new = []
-        
+       
         for i in order:
             if i in count:
-                for _ in range(count[i]):
-                    output.append(i)
+    
+                output.extend([i] * count[i])
                 del count[i]
 
         for i in count:
-            for _ in range(count[i]):
-                new.append(i)
-        
-        new.sort()
-        output.extend(new)
+            output.extend([i] * count[i])
+
        
         return "".join(output)
