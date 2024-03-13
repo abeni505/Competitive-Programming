@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/find-the-pivot-integer">2571. Find the Pivot Integer</a></h2><h3>Easy</h3><hr><p>Given a positive integer <code>n</code>, find the <strong>pivot integer</strong> <code>x</code> such that:</p>
+<h2><a href="https://leetcode.com/problems/find-the-pivot-integer">Find the Pivot Integer</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Given a positive integer <code>n</code>, find the <strong>pivot integer</strong> <code>x</code> such that:</p>
 
 <ul>
 	<li>The sum of all elements between <code>1</code> and <code>x</code> inclusively equals the sum of all elements between <code>x</code> and <code>n</code> inclusively.</li>
