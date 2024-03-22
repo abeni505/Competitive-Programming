@@ -9,11 +9,13 @@ class Solution:
                 ans.add(tuple(sorted(currans)))
                 return
 
-            currans.append(nums[index])
-            backtrack(index + 1 , currans)
+            if tuple(sorted(currans)) not in ans:
 
-            currans.pop()
-            backtrack(index + 1, currans)
+                currans.append(nums[index])
+                backtrack(index + 1 , currans)
+
+                currans.pop()
+                backtrack(index + 1, currans)
 
         backtrack(0 , [])
 
