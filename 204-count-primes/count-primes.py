@@ -11,7 +11,5 @@ class Solution:
             if isprime[i]:
                 for j in range(i * i ,n , i):
                     isprime[j] = False
-         
 
-        check = list(accumulate(isprime))
-        return check[n - 1]
+        return sum(isprime)
