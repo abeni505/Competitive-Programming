@@ -1,19 +1,17 @@
 class Solution:
     def countPrimes(self, n: int) -> int:
 
-        isprime = [1 for _ in range(n + 2)]
-        isprime[0] = isprime[1] = 0
+        if n <= 2:
+            return 0
+
+        isprime = [True] * n
+        isprime[0] = isprime[1] = False
         
-        d = 2
-        while d * d <= n:
-
-            if isprime[d]:
-                j = d * d
-
-                while j <= n:
-                    isprime[j] = 0
-                    j += d
-            d += 1
+        for i in range(2 , int(sqrt(n)) + 1):
+            if isprime[i]:
+                for j in range(i * i ,n , i):
+                    isprime[j] = False
+         
 
         check = list(accumulate(isprime))
         return check[n - 1]
