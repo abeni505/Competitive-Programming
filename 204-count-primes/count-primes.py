@@ -9,7 +9,6 @@ class Solution:
         
         for i in range(2 , int(sqrt(n)) + 1):
             if isprime[i]:
-                for j in range(i * i ,n , i):
-                    isprime[j] = False
+                isprime[i * i :: i] = [False] * len(isprime[i * i:: i])
 
         return sum(isprime)
