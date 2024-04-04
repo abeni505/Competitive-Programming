@@ -7,23 +7,22 @@ class Solution:
 
         visited = set()
         count = 0
+
+        def dfs(row, col):
+            for a , b in drxn:
+                newr = row + a
+                newc = col + b
+            
+                if inbound(newr, newc) and grid[newr][newc] == "1" and (newr, newc) not in visited:
+                    visited.add((newr, newc))
+                    dfs(newr , newc)
+
         for row in range(len(grid)):
             for col in range(len(grid[0])):
-
+                
                 if grid[row][col] == "1" and (row,col) not in visited:
-                    stack = [(row, col)]
-                    visited.add((row,col))
-                    while stack:
-                        r , c = stack.pop()
-
-                        for a , b in drxn:
-                            newr = r + a
-                            newc = c + b
-
-                            if inbound(newr, newc) and (newr, newc) not in visited and grid[newr][newc] == "1":
-                                stack.append((newr,newc))
-                                visited.add((newr,newc))
-
+                    visited.add((row, col))
+                    dfs(row , col)
                     count += 1
         return count
 
