@@ -3,29 +3,26 @@ class Solution:
         
 
 
-        colors = [-1] * len(graph)
+        color = defaultdict(int)
+        
         for i in range(len(graph)):
 
-            if colors[i] == -1:
-
-                stack = [(i , 0)]
-                while stack:
-
-                    node , color = stack.pop()
-
-                    if colors[node] == -1:
-                        colors[node] = color
-                    
-                        for nbr in graph[node]:
-                            stack.append((nbr , 1 - color))
-                    elif colors[node] != color:
-                        return False
-    
-        return True
-                        
-
-
+            if i in color:
+                continue
             
-                
-        print(colors)
+            stack = [i]
+            color[i] = 1
+
+            while stack:
+                curr = stack.pop()
+
+                for nbr in graph[curr]:
+                    if nbr in color:
+                        if color[nbr] == color[curr]:
+                            return False
+                    else:
+                        stack.append(nbr)
+                        color[nbr] = 1 - color[curr]
+        return True
+     
 
