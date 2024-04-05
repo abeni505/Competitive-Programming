@@ -4,27 +4,27 @@ class Solution:
         if source == destination:
             return True
 
-        hashmap = defaultdict(list)
+        graph = defaultdict(list)
         for u , v in edges:
-            hashmap[u].append(v)
-            hashmap[v].append(u)
+            graph[u].append(v)
+            graph[v].append(u)
 
 
         visited = set()
-        if hashmap[source]:
-            stack = [source]
-            visited.add(source)
 
-            while stack:
-                curr = stack.pop()
-                for x in hashmap[curr]:
-                    if x not in visited:
-                        if x == destination:
-                            return True
-                        stack.append(x)
-                        visited.add(x)
-        
-        return False
+        def dfs(node):
+            if node == destination:
+                return True
+            
+            visited.add(node)
+            for nbr in graph[node]:
+                if nbr not in visited:
+                    if dfs(nbr):
+                        return True
+
+            return False   
+         
+        return dfs(source)
                     
 
         
