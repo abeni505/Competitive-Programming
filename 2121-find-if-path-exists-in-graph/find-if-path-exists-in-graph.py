@@ -12,20 +12,19 @@ class Solution:
 
         visited = set()
 
-        stack = [source]
-        visited.add(source)
-
-        while stack:
-            curr = stack.pop()
-            if curr == destination:
+        def dfs(node):
+            if node == destination:
                 return True
-                
-            for neighbor in graph[curr]:
-                if neighbor not in visited:
-                    stack.append(neighbor)
-                    visited.add(neighbor)
-        
-        return False
+            
+            visited.add(node)
+            for nbr in graph[node]:
+                if nbr not in visited:
+                    if dfs(nbr):
+                        return True
+
+            return False   
+         
+        return dfs(source)
                     
 
         
