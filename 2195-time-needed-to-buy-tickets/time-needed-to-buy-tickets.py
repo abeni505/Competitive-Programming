@@ -1,20 +1,18 @@
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
-        total = 0
-        queue = deque()
-        hashmap = defaultdict(int)
+        
+        count = 0
+     
+        n = len(tickets)
+        for i in range(n):
+            
+            if i <= k:
+                count += min(tickets[k],tickets[i])
+            
+            else:
+                count += min(tickets[k] - 1, tickets[i])
 
-        for i in range(len(tickets)):
-            hashmap[i] = tickets[i]
-            queue.append(i)
+        return count
 
-        while hashmap[k] > 0:
-            peak = queue.popleft()
 
-            hashmap[peak] -= 1
-            if hashmap[peak]:
-                queue.append(peak)
 
-            total += 1
-
-        return total
