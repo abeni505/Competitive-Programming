@@ -1,13 +1,15 @@
 class Solution:
     def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
         
-        queue = deque()
         deck.sort(reverse = True)
 
-        for i in deck:
+        queue = deque()
+
+        for card in deck:
             if queue:
                 queue.appendleft(queue.pop())
 
-            queue.appendleft(i)
+            queue.appendleft(card)
+
 
         return queue
