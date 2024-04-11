@@ -1,17 +1,17 @@
 class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
         
-        stack = [0]
+        queue = deque([0])
         visited = set()
         visited.add(0)
 
-        while stack:
-            cur_room = stack.pop()
+        while queue:
+            cur_room = queue.popleft()
 
             for child in rooms[cur_room]:
                 if child not in visited:
-                    stack.append(child)
+                    queue.append(child)
 
                     visited.add(child)
-                    
+
         return len(visited) == len(rooms)
