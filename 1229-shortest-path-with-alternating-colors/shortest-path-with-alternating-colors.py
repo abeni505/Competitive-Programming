@@ -1,34 +1,33 @@
 class Solution:
     def shortestAlternatingPaths(self, n: int, redEdges: List[List[int]], blueEdges: List[List[int]]) -> List[int]:
         
-        graph = [[[],[]] for _ in range(n)]
+        graph = defaultdict(list)
 
-        for a , b in redEdges:
-            graph[a][0].append(b)
-        
-        for a , b in blueEdges:
-            graph[a][1].append(b)
+        for u , v in redEdges:
+            graph[u].append((v , "R"))
+        for u , v in blueEdges:
+            graph[u].append((v , "B"))
 
-      
-        RED , BLUE = 0, 1
-        queue = deque([(0,RED),(0,BLUE)])
-        visited = set([(0,RED),(0,BLUE)])
+
+        queue = deque([(0 , None, 0)])
+        visited = set([(0 , None)])
 
         answer = [-1] * n
         dist = 0
         while queue:
 
-            for _ in range(len(queue)):
-                node , color = queue.popleft()
+            node , color , dist = queue.popleft()
 
-                if answer[node] == -1:
-                    answer[node] = dist
+            if answer[node] == -1:
+                answer[node] = dist
+            
+            for nbr , nbr_color in graph[node]:
+                if nbr_color != color and (nbr , nbr_color) not in visited:
 
-                next_color = 1 - color
-                for nbr in graph[node][next_color]:
-                    if (nbr , next_color) not in visited:
-                        queue.append((nbr , next_color))
-                        visited.add((nbr , next_color))
-            dist += 1
-        
+                    queue.append((nbr, nbr_color, dist + 1))
+                    visited.add((nbr, nbr_color))
+                    
+            
+
         return answer
+
