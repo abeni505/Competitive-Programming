@@ -3,5 +3,13 @@ class Solution:
         
         count = Counter(sorted(words))
 
-        output = [key for key , val in count.most_common(k)]
+        max_heap = [(-val , key) for key , val in count.items()]
+        heapify(max_heap)
+
+        output = []
+        for _ in range(k):
+            output.append(heappop(max_heap)[1])
+
         return output
+
+        
