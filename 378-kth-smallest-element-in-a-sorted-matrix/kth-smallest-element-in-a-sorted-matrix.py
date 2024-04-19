@@ -1,9 +1,15 @@
 class Solution:
     def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
         
+        n = len(matrix)
         nums = []
-        for row in matrix:
-            nums.extend(row)
+        for r in range(n):
+            for c in range(n):
+                nums.append(matrix[r][c])
+
+        heapify(nums)
         
-        nums.sort()
-        return nums[k-1]
+        for _ in range(k - 1):
+            heappop(nums)
+       
+        return nums[0]
