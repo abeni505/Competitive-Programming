@@ -3,4 +3,4 @@ class Solution:
     
         down = list(merge(*matrix))
 
-        return nsmallest(k , down)[-1]
+        return down[k-1]
