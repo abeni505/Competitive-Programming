@@ -8,17 +8,17 @@ class Solution:
             graph[v].append(u)
 
         visited = set()
-        queue = deque([source])
+        stack = [source]
         visited.add(source)
 
-        while queue:
-            curr = queue.popleft()
+        while stack:
+            curr = stack.pop()
 
             if curr == destination:
                 return True
             for nbr in graph[curr]:
                 if nbr not in visited:
-                    queue.append(nbr)
+                    stack.append(nbr)
                     visited.add(nbr)
 
         return False
