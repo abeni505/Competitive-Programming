@@ -1,40 +1,30 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        adjlst = defaultdict(list)
+        
 
-        for c1 , c2 in prerequisites:
-            adjlst[c2].append(c1)
+        graph = defaultdict(list)
+        indegree = defaultdict(int)
 
-        state = [0] * numCourses
+        for course , pre in prerequisites:
+            graph[pre].append(course)
+            indegree[course] += 1
 
-    
-        # Each vertex can have 3 different states:
-        # state 0   : vertex is not visited. It's a default state.
-        # state -1  : vertex is being processed. Either all of its descendants
-        #             are not processed or it's still in the function call stack.
-        # state 1   : vertex and all its descendants are processed.
-    
-        def hasCycle(v):
-            if state[v] == 1:
-                # This vertex is processed so we pass.
-                return False
-            if state[v] == -1:
-                # This vertex is being processed and it means we have a cycle.
-                return True
+        queue = deque([])
+        for i in range(numCourses):
+            if not indegree[i]:
+                queue.append(i)
 
-            # Set state to -1
-            state[v] = -1
+        count = 0
+        while queue:
+            curr = queue.popleft()
+            
+            count += 1
+            for nbr in graph[curr]:
+                indegree[nbr] -= 1
 
-            for i in adjlst[v]:
-                if hasCycle(i):
-                    return True
+                if not indegree[nbr]:
+                    queue.append(nbr)
 
-            state[v] = 1
-            return False
+        return count == numCourses
 
-        # we traverse each vertex using DFS, if we find a cycle, stop and return
-        for v in range(numCourses):
-            if hasCycle(v):
-                return False
 
-        return True
