@@ -6,6 +6,7 @@ class Solution:
         
         tasks = sorted((tasks[i][0] , tasks[i][1] , i) for i in range(len(tasks)))
 
+     
         output = []
         time = 0
         for arrival_time, process_time, indx in tasks:
