@@ -16,18 +16,7 @@ class Solution:
             rootx = find(x)
             rooty = find(y)
 
-            if rootx != rooty:
-                min_ = min(rootx , rooty)
-
-                if min_ == rootx:
-                    for key in root:
-                        if root[key] == rooty:
-                            root[key] = rootx
-                    
-                else:
-                    for key in root:
-                        if root[key] == rootx:
-                            root[key] = rooty
+            root[rootx] = root[rooty] = min(rootx, rooty)
     
                    
         for i in range(len(s1)):
@@ -36,7 +25,7 @@ class Solution:
         
         output = []
         for j in baseStr:
-            output.append(root[j])
+            output.append(find(j))
 
         return "".join(output)
 
