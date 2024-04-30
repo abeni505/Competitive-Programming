@@ -7,7 +7,7 @@ class Solution:
             
             count_1 = 0
             while n != 0:
-                q = n // 2
+                q = n >> 1
                 r = n % 2
 
                 if r == 1:
