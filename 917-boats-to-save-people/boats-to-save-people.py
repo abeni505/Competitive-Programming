@@ -3,19 +3,17 @@ class Solution:
         
         people.sort()
 
-        left = 0
+        left = boat = 0
         right = len(people) - 1
 
-        count = 0
         while left <= right:
-
-            if people[left] + people[right]  > limit:
-                count += 1
-
-            elif people[left] + people[right]  <= limit:
+            if people[left] + people[right] > limit:
+                right -= 1
+            else:
                 left += 1
-                count += 1
-                
-            right -= 1
+                right -= 1
+            boat += 1   
+        
+        return boat 
+            
 
-        return count
