@@ -1,7 +1,7 @@
+memo = {}
 class Solution:
     def fib(self, n: int) -> int:
 
-        memo = {}
         if n in memo:
             return memo[n]
 
