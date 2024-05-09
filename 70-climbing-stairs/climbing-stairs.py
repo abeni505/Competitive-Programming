@@ -1,16 +1,14 @@
+memo = {}
 class Solution:
     def climbStairs(self, n: int) -> int:
-        if n == 1:
-            return 1
-        if n == 2:
-            return 2
+        
+        if n < 4:
+            return n
+        
+        if n in memo:
+            return memo[n]
+        
+        ans = self.climbStairs(n - 1) + self.climbStairs(n - 2)
+        memo[n] = ans
 
-        prev = 1
-        curr = 2
-
-        for i in range(3, n+1):
-           temp = curr
-           curr += prev
-           prev = temp
-           
-        return curr  
+        return memo[n] 
