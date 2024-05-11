@@ -1,11 +1,10 @@
 class Solution:
+    @cache
     def tribonacci(self, n: int) -> int:
+        if n < 2:
+            return n
+        if n == 2:
+            return 1
         
-        memo = [0 , 1 , 1]
-
-        if n < 3:
-            return memo[n]
-        for i in range(3 , n + 1):
-            memo[0] , memo[1] , memo[2] = memo[1] , memo[2] , sum(memo)
-
-        return memo[2]
+        return self.tribonacci(n - 1) + self.tribonacci(n - 2) + self.tribonacci(n - 3)
+        
