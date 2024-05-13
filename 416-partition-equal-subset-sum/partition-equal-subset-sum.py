@@ -16,11 +16,11 @@ class Solution:
             if target == 0: 
                 return True
 
-            if i >= n or target < 0:
+            if i < 0 or target < 0:
                 return False
             
-            memo[(i, target)] = dp(i + 1, target - nums[i]) or dp(i + 1, target)
+            memo[(i, target)] = dp(i - 1, target - nums[i]) or dp(i - 1, target)
 
             return memo[(i,target)]
 
-        return dp(0, target)
+        return dp(n - 1, target)
