@@ -1,13 +1,31 @@
 class Solution:
     def minFallingPathSum(self, matrix: List[List[int]]) -> int:
+        
         n = len(matrix)
-       
-        for r in range(1,n):
-            for c in range(n):
-                top_left = matrix[r-1][c-1] if c - 1 >= 0 else float('inf')
-                top_up = matrix[r-1][c]
-                top_right = matrix[r-1][c+1] if c + 1 <= n - 1 else float('inf')
 
-                matrix[r][c] = matrix[r][c] + min(top_left,top_up,top_right)
+        def inbound(row,col):
+            return 0 <= row < n and 0 <= col < n
 
-        return min(matrix[-1])
+        memo = {}
+        def dp(row, col):
+            if (row,col) in memo:
+                return memo[(row,col)]
+
+            if not inbound(row,col):
+                return float('inf')
+            if row == n - 1:
+                return matrix[row][col]
+            
+            d_left =  dp(row + 1 , col - 1)
+            d_right = dp(row + 1 , col + 1)
+            down =  dp(row + 1 , col)
+
+
+            memo[(row,col)] = matrix[row][col] + min(d_left , d_right , down)
+            return memo[(row,col)]
+        
+        minn = float('inf')
+        for i in range(n):
+            minn = min(minn, dp(0 , i))
+        
+        return minn
