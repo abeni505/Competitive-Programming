@@ -2,22 +2,13 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
 
         n = len(prices)
-        memo = {}
 
-        def dp(i, min_price):
-            if i == n:
-                return 0
-            
-            if (i, min_price) in memo:
-                return memo[(i, min_price)]
-            
-            
-            take = prices[i] - min_price
-            not_take = dp(i + 1, min(min_price, prices[i]))
+        minn = prices[0]
+        maxx = 0
 
-            
-            memo[(i, min_price)] = max(take, not_take)
-            
-            return memo[(i, min_price)]
+        for i in range(1 , n):
+            maxx = max(maxx , prices[i] - minn)
+            minn = min(minn, prices[i])
 
-        return dp(0, float('inf'))
+        return maxx
+
