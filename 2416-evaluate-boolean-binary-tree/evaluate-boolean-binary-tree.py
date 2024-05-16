@@ -10,14 +10,11 @@ class Solution:
         def dfs(root):
             if not root.left and not root.right:
                 return root.val
+        
+            if root.val == 2:
+                return dfs(root.left) or dfs(root.right)
+            else:
+                return dfs(root.left) and dfs(root.right)
             
-            if root.left:
-                left = dfs(root.left)
-            
-            if root.val == 2 and root.right:
-                return left or dfs(root.right)
-            elif root.val == 3 and root.right:
-                return left and dfs(root.right)
-                
         return dfs(root)
                 
