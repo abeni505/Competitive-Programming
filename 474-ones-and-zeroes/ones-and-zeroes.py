@@ -11,9 +11,6 @@ class Solution:
 
             if zero < 0 or one < 0: 
                 return -1
-            
-            if zero == 0 and one == 0: 
-                return 0
 
             if i == lenn: 
                 return 0
