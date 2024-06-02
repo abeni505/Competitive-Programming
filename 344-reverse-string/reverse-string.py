@@ -3,18 +3,10 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        def rec(n):
+        left = 0
+        right = len(s) - 1
 
-            if n == len(s):
-                return
-                
-            temp = s[n]
-            rec(n+1)
-            
-            s[-1 - n] = temp
-            # print(s[n])
-            
-        rec(0)
-        
-
-     
+        while left <= right:
+            s[left] , s[right] = s[right] , s[left]
+            left += 1
+            right -= 1
