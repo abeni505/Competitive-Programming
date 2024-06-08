@@ -3,19 +3,19 @@ class Solution:
         
         prefix = defaultdict(int)
         prefix[0] = -1
-        
-        pre_sum = 0
+
+        curr_sum = 0
         for i in range(len(nums)):
 
-            pre_sum  += nums[i] 
-            pre_right = pre_sum % k
-            print(pre_right)
+            curr_sum += nums[i]
+            pre_right = curr_sum % k
 
             if pre_right in prefix:
-                if i - prefix[pre_right] > 1:
+                if i - prefix[pre_right] >= 2:
                     return True
+      
             else:
                 prefix[pre_right] = i
-
+        
+        
         return False
-                
