@@ -4,14 +4,19 @@ class Solution:
         prefix = defaultdict(int)
         prefix[0] = 1
 
-        pre_right = count = 0
-        for num in nums:
-            pre_right += num
-            # PL % k = PR % k 
-            pre_left = pre_right % k
-            count += prefix[pre_left]
+        curr_sum = count = 0
+        for i in nums:
+            curr_sum += i
 
-            prefix[pre_right % k] += 1
+            pre_right = curr_sum % k
+
+            if pre_right in prefix:
+                count += prefix[pre_right]
+
+                prefix[pre_right] += 1
+            
+            else:
+                prefix[pre_right] = 1
 
         return count
 
