@@ -1,16 +1,19 @@
 class Solution:
     def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
-        
-        output = []
         count = Counter(arr1)
-        for i in range(len(arr2)):
-            for j in range(count[arr2[i]]):
-                output.append(arr2[i])
 
-        output2 = []
-        for j in arr1:
-            if j not in arr2:
-                output2.append(j)
-        output2.sort()
-        
-        return output + output2
+        output = []
+        for i in arr2:
+            j = count[i]
+            for _ in range(j):
+                output.append(i)
+                count[i] -= 1
+
+        count = dict(sorted(count.items() , key = lambda x: x[0]))
+
+        for key , value in count.items():
+            if count[key]:
+                for _ in range(value):
+                    output.append(key)
+              
+        return output 
