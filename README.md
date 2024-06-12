@@ -20,6 +20,7 @@ A2SV - Competitive Programming
 # Array
 |  |
 | ------- |
+| [0075-sort-colors](https://github.com/abeni505/Competitive-Programming/tree/master/0075-sort-colors) |
 | [0523-continuous-subarray-sum](https://github.com/abeni505/Competitive-Programming/tree/master/0523-continuous-subarray-sum) |
 | [1016-subarray-sums-divisible-by-k](https://github.com/abeni505/Competitive-Programming/tree/master/1016-subarray-sums-divisible-by-k) |
 | [1137-height-checker](https://github.com/abeni505/Competitive-Programming/tree/master/1137-height-checker) |
@@ -36,6 +37,7 @@ A2SV - Competitive Programming
 # Sorting
 |  |
 | ------- |
+| [0075-sort-colors](https://github.com/abeni505/Competitive-Programming/tree/master/0075-sort-colors) |
 | [1137-height-checker](https://github.com/abeni505/Competitive-Programming/tree/master/1137-height-checker) |
 | [1217-relative-sort-array](https://github.com/abeni505/Competitive-Programming/tree/master/1217-relative-sort-array) |
 # Counting Sort
@@ -43,3 +45,7 @@ A2SV - Competitive Programming
 | ------- |
 | [1137-height-checker](https://github.com/abeni505/Competitive-Programming/tree/master/1137-height-checker) |
 | [1217-relative-sort-array](https://github.com/abeni505/Competitive-Programming/tree/master/1217-relative-sort-array) |
+# Two Pointers
+|  |
+| ------- |
+| [0075-sort-colors](https://github.com/abeni505/Competitive-Programming/tree/master/0075-sort-colors) |
