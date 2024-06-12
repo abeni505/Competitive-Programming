@@ -3,13 +3,17 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        for i in range(len(nums)):
-            curr_min = i
-            for j in range(i + 1 , len(nums)):
-                if nums[j] < nums[curr_min]:
-                    curr_min = j
+        count = [0 , 0 , 0]
+
+        for i in nums:
+            count[i] += 1
+        
+        indx = 0
+        for j in range(len(count)):
+            for k in range(count[j]):
+                nums[indx] =  j
+                indx += 1
             
-            nums[i] , nums[curr_min] = nums[curr_min] , nums[i]
         
         
 
