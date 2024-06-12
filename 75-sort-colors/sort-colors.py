@@ -3,25 +3,14 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-
-        left = seeker = 0
-        right = len(nums) - 1
+        for i in range(len(nums)):
+            curr_min = i
+            for j in range(i + 1 , len(nums)):
+                if nums[j] < nums[curr_min]:
+                    curr_min = j
+            
+            nums[i] , nums[curr_min] = nums[curr_min] , nums[i]
+        
         
 
-        while seeker <= right:
-            
-            if nums[seeker] == 0:
-                nums[left], nums[seeker] = nums[seeker] , nums[left]
-                left += 1
-                seeker += 1
-                
-            elif nums[seeker] == 2:
-                nums[seeker] , nums[right] = nums[right] , nums[seeker]
-                right -= 1
-            else:
-                seeker += 1
-            
-
-
         
-    
