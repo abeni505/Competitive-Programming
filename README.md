@@ -13,6 +13,7 @@ A2SV - Competitive Programming
 |  |
 | ------- |
 | [0409-longest-palindrome](https://github.com/abeni505/Competitive-Programming/tree/master/0409-longest-palindrome) |
+| [0800-letter-case-permutation](https://github.com/abeni505/Competitive-Programming/tree/master/0800-letter-case-permutation) |
 # Greedy
 |  |
 | ------- |
@@ -49,3 +50,11 @@ A2SV - Competitive Programming
 |  |
 | ------- |
 | [0075-sort-colors](https://github.com/abeni505/Competitive-Programming/tree/master/0075-sort-colors) |
+# Backtracking
+|  |
+| ------- |
+| [0800-letter-case-permutation](https://github.com/abeni505/Competitive-Programming/tree/master/0800-letter-case-permutation) |
+# Bit Manipulation
+|  |
+| ------- |
+| [0800-letter-case-permutation](https://github.com/abeni505/Competitive-Programming/tree/master/0800-letter-case-permutation) |
