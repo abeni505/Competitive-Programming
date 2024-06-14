@@ -5,6 +5,7 @@ A2SV - Competitive Programming
 # Hash Table
 |  |
 | ------- |
+| [0049-group-anagrams](https://github.com/abeni505/Competitive-Programming/tree/master/0049-group-anagrams) |
 | [0409-longest-palindrome](https://github.com/abeni505/Competitive-Programming/tree/master/0409-longest-palindrome) |
 | [0523-continuous-subarray-sum](https://github.com/abeni505/Competitive-Programming/tree/master/0523-continuous-subarray-sum) |
 | [1016-subarray-sums-divisible-by-k](https://github.com/abeni505/Competitive-Programming/tree/master/1016-subarray-sums-divisible-by-k) |
@@ -12,6 +13,7 @@ A2SV - Competitive Programming
 # String
 |  |
 | ------- |
+| [0049-group-anagrams](https://github.com/abeni505/Competitive-Programming/tree/master/0049-group-anagrams) |
 | [0409-longest-palindrome](https://github.com/abeni505/Competitive-Programming/tree/master/0409-longest-palindrome) |
 | [0800-letter-case-permutation](https://github.com/abeni505/Competitive-Programming/tree/master/0800-letter-case-permutation) |
 # Greedy
@@ -21,6 +23,7 @@ A2SV - Competitive Programming
 # Array
 |  |
 | ------- |
+| [0049-group-anagrams](https://github.com/abeni505/Competitive-Programming/tree/master/0049-group-anagrams) |
 | [0075-sort-colors](https://github.com/abeni505/Competitive-Programming/tree/master/0075-sort-colors) |
 | [0523-continuous-subarray-sum](https://github.com/abeni505/Competitive-Programming/tree/master/0523-continuous-subarray-sum) |
 | [1016-subarray-sums-divisible-by-k](https://github.com/abeni505/Competitive-Programming/tree/master/1016-subarray-sums-divisible-by-k) |
@@ -38,6 +41,7 @@ A2SV - Competitive Programming
 # Sorting
 |  |
 | ------- |
+| [0049-group-anagrams](https://github.com/abeni505/Competitive-Programming/tree/master/0049-group-anagrams) |
 | [0075-sort-colors](https://github.com/abeni505/Competitive-Programming/tree/master/0075-sort-colors) |
 | [1137-height-checker](https://github.com/abeni505/Competitive-Programming/tree/master/1137-height-checker) |
 | [1217-relative-sort-array](https://github.com/abeni505/Competitive-Programming/tree/master/1217-relative-sort-array) |
