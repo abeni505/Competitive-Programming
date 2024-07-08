@@ -2,10 +2,7 @@ class Solution:
     def findTheWinner(self, n: int, k: int) -> int:
         
         array = [ i for i in range(1 , n+1)]
-
-        # for i in range(ceil(n/2)):
-        #     if i % k == 0:
-        #         array.pop(array[i])
+        
         nums = [0] * n
         count = 0
         i = 0
